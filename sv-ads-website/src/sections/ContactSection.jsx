@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import '../styles/contact.css';
 
-// ⚠️ Replace these with your actual EmailJS credentials
-const SERVICE_ID = 'service_cx2l0sv';
-const TEMPLATE_ID = 'template_y701zs7';
-const PUBLIC_KEY = '9pQ_i2qAdoVv76Ib1';
+// EmailJS credentials — stored in .env (never committed to git)
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export default function ContactSection() {
     const [formData, setFormData] = useState({
