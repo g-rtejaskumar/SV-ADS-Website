@@ -62,7 +62,7 @@ export default function ServicesSection() {
     return (
         <section id="services">
             <div className="services-container">
-                <h2 className="services-title">Our Services</h2>
+                <h2 className="services-title">Our Outdoor Advertising Services</h2>
 
                 <motion.div
                     className="services-grid"

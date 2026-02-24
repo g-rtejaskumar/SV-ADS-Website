@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import '../styles/contact.css';
+
+// ⚠️ Replace these with your actual EmailJS credentials
+const SERVICE_ID = 'service_cx2l0sv';
+const TEMPLATE_ID = 'template_y701zs7';
+const PUBLIC_KEY = '9pQ_i2qAdoVv76Ib1';
 
 export default function ContactSection() {
     const [formData, setFormData] = useState({
@@ -12,6 +18,7 @@ export default function ContactSection() {
         mediaType: '',
         message: ''
     });
+    const [isSending, setIsSending] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -21,19 +28,36 @@ export default function ContactSection() {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        alert('Thank you for contacting SV Ads! We will get back to you shortly.');
-        // Here you would typically send data to a backend
-        console.log('Form submitted:', formData);
-        setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            city: '',
-            mediaType: '',
-            message: ''
-        });
+        setIsSending(true);
+
+        const templateParams = {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            city: formData.city,
+            media: formData.mediaType,
+            message: formData.message,
+        };
+
+        try {
+            await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+            alert('Thank you! SV Ads will contact you soon.');
+            setFormData({
+                name: '',
+                email: '',
+                phone: '',
+                city: '',
+                mediaType: '',
+                message: ''
+            });
+        } catch (error) {
+            console.error('EmailJS error:', error);
+            alert('Something went wrong. Please try again.');
+        } finally {
+            setIsSending(false);
+        }
     };
 
     return (
@@ -45,7 +69,7 @@ export default function ContactSection() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}
             >
-                <h2 className="contact-title">Contact Us</h2>
+                <h2 className="contact-title">Contact SV Ads Hyderabad</h2>
 
                 <div className="contact-wrapper">
                     {/* Left Side: Contact Info & Map */}
@@ -166,6 +190,7 @@ export default function ContactSection() {
                                     <option value="Backlit Hoardings">Backlit Hoardings</option>
                                     <option value="Highway Hoardings">Highway Hoardings</option>
                                     <option value="Junction Dominating Hoardings">Junction Dominating Hoardings</option>
+                                    <option value="Others">Others</option>
                                 </select>
                             </div>
 
@@ -181,7 +206,14 @@ export default function ContactSection() {
                                 ></textarea>
                             </div>
 
-                            <button type="submit" className="submit-btn">Send Enquiry</button>
+                            <button
+                                type="submit"
+                                className="submit-btn"
+                                disabled={isSending}
+                                style={{ opacity: isSending ? 0.7 : 1, cursor: isSending ? 'not-allowed' : 'pointer' }}
+                            >
+                                {isSending ? 'Sending...' : 'Send Enquiry'}
+                            </button>
                         </form>
                     </div>
                 </div>

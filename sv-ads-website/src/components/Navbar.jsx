@@ -75,8 +75,15 @@ const Navbar = () => {
     return (
         <nav className={`navbar ${isScrolled ? 'scrolled' : ''} `}>
             <div className="navbar-logo">
-                <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>
-                    <img src={logo} alt="SV Ads Logo" className="logo-image" />
+                <a href="#home" onClick={() => { setIsOpen(false); setActiveSection('home'); scrollToSection('home'); }}>
+                    <img
+                        src={logo}
+                        alt="SV Ads Logo"
+                        className="logo-image"
+                        width="50"
+                        height="50"
+                        fetchpriority="high"
+                    />
                     <span className="logo-text">SV Ads</span>
                 </a>
             </div>

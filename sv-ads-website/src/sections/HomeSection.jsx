@@ -20,7 +20,7 @@ export default function HomeSection() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
-                        SV Ads – Outdoor Advertising That Gets You Seen
+                        SV Ads – Premier Outdoor Advertising in Hyderabad
                     </motion.h1>
 
                     <motion.h2
@@ -29,7 +29,7 @@ export default function HomeSection() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                     >
-                        Outdoor advertising and publishing solutions focused on high-impact hoardings and brand visibility across Hyderabad.
+                        High-impact Hoardings, Billboards, and Unipoles allowing your brand to dominate the skyline.
                     </motion.h2>
 
                     <motion.p

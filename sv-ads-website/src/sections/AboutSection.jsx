@@ -17,7 +17,7 @@ export default function AboutSection() {
                 <div className="about-content-wrapper">
                     <div className="about-column">
                         <p className="about-intro">
-                            SV Ads is an outdoor advertising and publishing company based in Hyderabad, India. We specialize in hoardings and outdoor branding solutions designed to increase visibility and strengthen brand presence.
+                            SV Ads is a leading <strong>outdoor advertising agency in Hyderabad</strong>. We specialize in <strong>premium hoardings, unipoles, and billboard advertising</strong> designed to increase visibility and strengthen brand presence across the city.
                         </p>
 
                         <h3 className="about-subtitle">Our Mission</h3>
