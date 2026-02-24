@@ -1,0 +1,185 @@
+/* Navbar Container */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 2rem;
+    /* Reduced padding for slimmer look */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    background: rgba(13, 27, 61, 0.85);
+    /* Dark Blue with transparency */
+    backdrop-filter: blur(6px);
+    /* Premium blur effect */
+    -webkit-backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    /* Subtle premium border */
+    color: var(--white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scrolled {
+    background: var(--dark-blue);
+    /* Solid Dark Blue */
+    padding: 0.5rem 2rem;
+    /* Consistent slimmer padding */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo */
+.navbar-logo {
+    font-family: var(--font-brand);
+    font-size: 1.8rem;
+    /* Slightly larger for impact */
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    /* Optional: often looks good with Oswald */
+}
+
+.navbar-logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    /* 26-30px range */
+    font-weight: 700;
+    /* Bold */
+    letter-spacing: 2px;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    /* Slight text shadow */
+}
+
+.logo-image {
+    height: 50px;
+    /* Exact requested height */
+    width: auto;
+    margin-right: 10px;
+    object-fit: contain;
+    padding: 0;
+    /* Remove padding for cleaner look */
+    border-radius: 0;
+    /* Remove radius for sharper premium look */
+}
+
+/* Desktop Navigation */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--accent-red);
+}
+
+.nav-link.active {
+    color: var(--accent-red);
+}
+
+/* Sliding Underline Animation */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-red);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Hamburger Menu (Mobile) */
+.menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+        padding: 1rem;
+        background: var(--dark-blue);
+        /* Always solid bg on mobile for readability */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        width: 100%;
+        background: var(--dark-blue);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        transform: translateY(-150%);
+        transition: transform 0.3s ease-in-out;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .nav-link.active::after {
+        display: none;
+        /* simple highlight on mobile */
+    }
+
+    .logo-image {
+        height: 40px;
+        /* Reduce to 40px on mobile */
+    }
+}

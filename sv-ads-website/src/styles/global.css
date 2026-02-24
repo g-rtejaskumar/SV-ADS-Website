@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Bebas+Neue&display=swap');
+
+:root {
+    --primary-blue: #1A3C8B;
+    --dark-blue: #0D1B3D;
+    --accent-red: #E63946;
+    --white: #FFFFFF;
+    --light-gray: #F5F5F5;
+    --font-brand: 'Oswald', sans-serif;
+    --font-heading: 'Bebas Neue', cursive;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+section {
+    min-height: 100vh;
+    padding: 80px 40px;
+    scroll-margin-top: 80px;
+    /* Account for sticky navbar */
+}
+
+html {
+    scroll-behavior: smooth;
+}
