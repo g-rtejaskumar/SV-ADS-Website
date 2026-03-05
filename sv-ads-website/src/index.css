@@ -54,3 +54,29 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+.form-success {
+  background: #e8f9ee;
+  color: #1a7f37;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  border-left: 4px solid #1a7f37;
+}
+
+.form-error {
+  background: #fdecea;
+  color: #b42318;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  border-left: 4px solid #b42318;
+}
+
+.form-note {
+  font-size: 13px;
+  color: #666;
+  margin-top: 10px;
+}
